@@ -1,70 +1,111 @@
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+* {
+  box-sizing: border-box;
 }
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 20px;
+  font-family: "Inter", sans-serif;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+h3 {
+  font-weight: 600;
+  color: #101828;
+}
+P {
+  font-weight: lighter;
+}
+.main {
+  text-align: center;
+  padding: 24px 0px 32px;
+  background-color: white;
+}
+.main--profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+}
+
+.main--links {
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 button {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 14px 32px;
+  background: #eaecf0;
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  border: none;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+a :hover {
+  background: #b1b3b6;
+  cursor: pointer;
+}
+
+#slack {
+  display: none;
+}
+#twitter {
+  width: 343px;
+  height: 28px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 28px;
+  line-height: 28px;
+  margin: 32px;
+}
+
+#profile_img {
+  width: 88px;
+  border-radius: 100%;
+}
+.sharebutton {
+  width: 40px;
+  margin-left: auto;
+}
+
+.main--footer {
+  padding: 25px;
+}
+.slack {
+  margin-right: 25px;
+}
+
+.hng9 {
+  color: #667085;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.footer {
+  border-top: 0.5px solid black;
+  border-top-style: dashed;
+  padding: 50px 10px 35px;
+}
+@media screen and (min-width: 820px) {
+  a {
+    width: 800px;
+    margin: 0 auto;
   }
-  a:hover {
-    color: #747bff;
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+    margin: 0 auto;
   }
-  button {
-    background-color: #f9f9f9;
+  .footer > img {
+    padding: 20px;
+  }
+
+  .sharebutton {
+    margin-left: 755px;
   }
 }
