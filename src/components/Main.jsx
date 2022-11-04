@@ -58,6 +58,14 @@ function Main() {
             <p>Get free design book by Zuri. Yes there is no catch.</p>
           </a>
         </button>
+        <button id="contact" className="btn">
+          <a href="/contact">
+            <h3>Contact Me</h3>
+            <p>
+              Hi there, contact me to ask me about anything you have in mind.
+            </p>
+          </a>
+        </button>
       </div>
       <div className="main--footer"></div>
       <img className="slack" src={Slackicon} alt="slack icon" />
