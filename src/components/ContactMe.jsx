@@ -1,5 +1,6 @@
 import React from "react";
 import Footer from "./footer";
+import "../contactme.css";
 
 export default function () {
   function handleSubmit(event) {
@@ -104,9 +105,11 @@ export default function () {
               onChange={checker}
               checked={isChecked}
             ></input>
-            <p>
-              You agree to providing your data to {name} who may contact you.
-            </p>
+            <label htmlFor="box">
+              <p>
+                You agree to providing your data to {name} who may contact you.
+              </p>
+            </label>
           </div>
 
           <button type="submit" id="btn__submit" className="submit">
