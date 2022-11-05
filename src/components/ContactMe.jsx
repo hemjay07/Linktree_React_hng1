@@ -3,27 +3,35 @@ import Footer from "./footer";
 import "../contactme.css";
 
 export default function () {
+  // This function clears all fields after the submit button is hit
   function handleSubmit(event) {
     event.preventDefault();
     setisChecked(false);
     setformData({ firstName: "", lastName: "", textarea: "", email: "" });
   }
+
+  // This function updates the form data upon any change to any of the input fields
   function handleChange(event) {
     setformData({ ...formData, [event.target.name]: event.target.value });
   }
 
+  // set the state of the attribute isChecked of the checkbox to false and call the funciton checker whenever their is a change to update the state.
   const [isChecked, setisChecked] = React.useState(false);
   function checker() {
     setisChecked(!isChecked);
     console.log(isChecked);
   }
+
+  // Set the initial state of the formdata to empty
   const [formData, setformData] = React.useState({
     firstName: "",
     lastName: "",
     textarea: "",
     email: "",
   });
+
   const name = "mujeeb_dimeji";
+
   return (
     <>
       <div className="contact">
@@ -34,6 +42,7 @@ export default function () {
             Hi there, contact me to ask me about anything you have in mind.
           </p>{" "}
         </div>
+
         <form onSubmit={handleSubmit}>
           <div className="name">
             <div className="firstname">
@@ -61,8 +70,7 @@ export default function () {
               />
             </div>
           </div>
-          {/* <br />
-          <br /> */}
+
           <div className="email">
             <label htmlFor="email">Email</label>
             <input
@@ -79,6 +87,7 @@ export default function () {
           </div>
 
           <br />
+
           <div className="textarea">
             <label htmlFor="message">Message</label>
 
@@ -117,6 +126,7 @@ export default function () {
           </button>
         </form>
       </div>
+
       <Footer />
     </>
   );
