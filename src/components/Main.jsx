@@ -4,6 +4,7 @@ import SharebuttonMobile from "../assets/sharebutton.png";
 import SharebuttonWeb from "../assets/Content.png";
 import Githubicon from "../assets/github.png";
 import Slackicon from "../assets/slack.png";
+import { Link } from "react-router-dom";
 
 const browserWidth = window.innerWidth;
 function Main() {
@@ -59,12 +60,12 @@ function Main() {
           </a>
         </button>
         <button id="contact" className="btn">
-          <a href="/contact">
+          <Link to="/contact">
             <h3>Contact Me</h3>
             <p>
               Hi there, contact me to ask me about anything you have in mind.
             </p>
-          </a>
+          </Link>
         </button>
       </div>
       <div className="main--footer"></div>

@@ -4,59 +4,114 @@ import Footer from "./footer";
 export default function () {
   function handleSubmit(event) {
     event.preventDefault();
+    setisChecked(false);
+    setformData({ firstName: "", lastName: "", textarea: "", email: "" });
   }
+  function handleChange(event) {
+    setformData({ ...formData, [event.target.name]: event.target.value });
+  }
+
+  const [isChecked, setisChecked] = React.useState(false);
+  function checker() {
+    setisChecked(!isChecked);
+    console.log(isChecked);
+  }
+  const [formData, setformData] = React.useState({
+    firstName: "",
+    lastName: "",
+    textarea: "",
+    email: "",
+  });
+  const name = "mujeeb_dimeji";
   return (
     <>
       <div className="contact">
-        <div>
+        <div className="headline">
           <h2>Contact Me</h2>
+          <p>
+            {" "}
+            Hi there, contact me to ask me about anything you have in mind.
+          </p>{" "}
         </div>
-        <p> Hi there, contact me to ask me about anything you have in mind.</p>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="first_name">First name</label>
-          <input
-            type="text"
-            id="first_name"
-            placeholder="Enter your first name"
-          />
-          <label htmlFor="last_name">Last name</label>
-          <input
-            type="text"
-            id="last_name"
-            placeholder="Enter your last name"
-          />
+          <div className="name">
+            <div className="firstname">
+              <label htmlFor="first_name">First name</label>
+              <input
+                type="text"
+                id="first_name"
+                placeholder="Enter your first name"
+                required
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="lastname">
+              <label htmlFor="last_name">Last name</label>
+              <input
+                type="text"
+                id="last_name"
+                name="lastName"
+                placeholder="Enter your last name"
+                required
+                onChange={handleChange}
+                value={formData.lastName}
+              />
+            </div>
+          </div>
+          {/* <br />
+          <br /> */}
+          <div className="email">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="yourname@email.com"
+              required
+              onChange={handleChange}
+              value={formData.email}
+            />
+            <br />
+            <br />
+          </div>
+
           <br />
-          <br />
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" placeholder="yourname@email.com" />
-          <br />
-          <br />
-          <label htmlFor="message">Message</label>
-          <br />
-          <textarea
-            name="textarea"
-            id="message"
-            cols="30"
-            rows="10"
-            placeholder="Send me a message and i'll reply you as soon as possible..."
-          ></textarea>
+          <div className="textarea">
+            <label htmlFor="message">Message</label>
+
+            <textarea
+              name="textarea"
+              id="message"
+              required
+              cols="30"
+              rows="10"
+              placeholder="Send me a message and i'll reply you as soon as possible..."
+              onChange={handleChange}
+              value={formData.textarea}
+            ></textarea>
+          </div>
+
           <br />
           <br />
 
-          {/* <textarea
-            type="text"
-            id="message"
-            placeholder="Send me a message and i'll reply you as soon as possible..."
-          /> */}
+          <div className="consent">
+            <input
+              required
+              type="checkbox"
+              id="box"
+              onChange={checker}
+              checked={isChecked}
+            ></input>
+            <p>
+              You agree to providing your data to {name} who may contact you.
+            </p>
+          </div>
 
-          <input type="radio" id="radio_check" />
-          <label htmlFor="radio_check">
-            You agree to providing your data to Mujeeb who may contact you.
-          </label>
-          <button type="submit" id="btn__submit">
-            Send message
+          <button type="submit" id="btn__submit" className="submit">
+            <p>Send message</p>
           </button>
-          <input type="submit" />
         </form>
       </div>
       <Footer />
