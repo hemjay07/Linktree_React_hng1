@@ -29,7 +29,17 @@ export default function () {
     textarea: "",
     email: "",
   });
-
+  const handleClicked = () => {
+    const message = document.getElementById("message");
+    if (message.value == "") {
+      document.querySelector("#message_error").innerHTML =
+        "Please enter a message";
+      document.querySelector("#message").style.border = "1px solid #f89687";
+    } else {
+      document.querySelector("#message_error").innerHTML = "";
+      document.querySelector("#message").style.border = "1px solid #d0d5dd";
+    }
+  };
   const name = "mujeeb_dimeji";
 
   return (
@@ -46,33 +56,41 @@ export default function () {
         <form onSubmit={handleSubmit}>
           <div className="name">
             <div className="firstname">
-              <label htmlFor="first_name">First name</label>
-              <input
-                type="text"
-                id="first_name"
-                placeholder="Enter your first name"
-                required
-                name="firstName"
-                value={formData.firstName}
-                onChange={handleChange}
-              />
+              {" "}
+              <label>
+                First name
+                <input
+                  type="text"
+                  id="first_name"
+                  placeholder="Enter your first name"
+                  required
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                />
+              </label>
             </div>
+
             <div className="lastname">
-              <label htmlFor="last_name">Last name</label>
-              <input
-                type="text"
-                id="last_name"
-                name="lastName"
-                placeholder="Enter your last name"
-                required
-                onChange={handleChange}
-                value={formData.lastName}
-              />
+              {" "}
+              <label>
+                Last name
+                <input
+                  type="text"
+                  id="last_name"
+                  name="lastName"
+                  placeholder="Enter your last name"
+                  required
+                  onChange={handleChange}
+                  value={formData.lastName}
+                />
+              </label>
             </div>
           </div>
 
-          <div className="email">
-            <label htmlFor="email">Email</label>
+          {/* <div className="email"> */}
+          <label>
+            Email
             <input
               type="email"
               id="email"
@@ -82,26 +100,26 @@ export default function () {
               onChange={handleChange}
               value={formData.email}
             />
-            <br />
-            <br />
-          </div>
+          </label>
+          <br />
+          <br />
+          {/* </div> */}
 
           <br />
 
-          <div className="textarea">
-            <label htmlFor="message">Message</label>
-
+          <label>
+            Message
             <textarea
               name="textarea"
               id="message"
-              required
               cols="30"
               rows="10"
               placeholder="Send me a message and i'll reply you as soon as possible..."
               onChange={handleChange}
               value={formData.textarea}
             ></textarea>
-          </div>
+            <div id="message_error"></div>
+          </label>
 
           <br />
           <br />
@@ -121,8 +139,13 @@ export default function () {
             </label>
           </div>
 
-          <button type="submit" id="btn__submit" className="submit">
-            <p>Send message</p>
+          <button
+            type="submit"
+            id="btn__submit"
+            className="submit"
+            onClick={handleClicked}
+          >
+            Send message
           </button>
         </form>
       </div>
